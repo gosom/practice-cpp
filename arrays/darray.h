@@ -17,7 +17,7 @@ namespace ds {
             ~DArray() {
                 for(auto i=0; i<_size; i++)
                     items[i].~ITEM();
-                delete items;
+                delete [] items;
             }
 
             size_t size() { return _size; }
@@ -60,7 +60,7 @@ namespace ds {
                     new(&items[i])ITEM(old[i]);
                 for(auto i=0; i<_size; ++i)
                     old[i].~ITEM();
-                delete old;
+                delete [] old;
             }
     };
 }
